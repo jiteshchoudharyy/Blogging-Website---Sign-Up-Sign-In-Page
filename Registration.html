@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Registration</title>
+  <link rel="stylesheet" href="Registration.css">
+  <link href="https://fonts.googleapis.com/css?family=Coiny" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville" rel="stylesheet">
+  <script>
+    function Reg_Div_Show() {
+      var a1 = document.getElementById("Signup_Div");
+      var a2 = document.getElementById("Login_Div");
+      var a3 = document.getElementById("Web_Heading");
+      var a4 = document.getElementById("logo");
+      var a5 = document.getElementById("Slogan");
+      var a6 = document.getElementById("Intro");
+      var a7 = document.getElementById("Note");
+      a2.style.display = "block";
+      a2.style.opacity = "opacity 2500ms ease-in-out";
+      a3.style.left = "9.5%";
+      a3.style.top = "3%";
+      a3.style.fontSize = "68px";
+      a3.style.transition = "1.2s";
+      a3.style.textShadow = "white 2px 2px";
+      a4.style.width = "85px";
+      a4.style.height = "85px";
+      a4.style.top = "12%";
+      a4.style.left = "4%";
+      a4.style.transition = "1.2s";
+      a5.style.display = "none";
+      a6.style.fontSize = "22px";
+      a6.style.transition = "1.2s";
+      a7.style.display = "none";
+    }
+    function Signup_Div_Show() {
+      var a1 = document.getElementById("Signup_Div");
+      var a2 = document.getElementById("Login_Div");
+      a2.style.display = "none";
+      a1.style.display = "block";
+    }
+    function Login_Div_Show() {
+      var a1 = document.getElementById("Signup_Div");
+      var a2 = document.getElementById("Login_Div");
+      a1.style.display = "none";
+      a2.style.display = "block";
+    }
+    function Cancel_Reg() {
+      var a1 = document.getElementById("Signup_Div");
+      var a2 = document.getElementById("Login_Div");
+      var a3 = document.getElementById("Web_Heading");
+      var a4 = document.getElementById("logo");
+      var a5 = document.getElementById("Slogan");
+      var a6 = document.getElementById("Intro");
+      var a7 = document.getElementById("Note");
+      a1.style.display = "none";
+      a2.style.display = "none";
+      a3.style.left = "30%";
+      a3.style.top = "-10%";
+      a3.style.fontSize = "120px";
+      a4.style.width = "450px";
+      a4.style.height = "450px";
+      a4.style.top = "0%";
+      a4.style.left = "1.2%";
+      a4.style.transition = "1.2s";
+      a5.style.display = "block";
+      a6.style.fontSize = "0px";
+      a6.style.transition = "0.2s";
+      a7.style.display = "block";
+    }
+    function matchPassword() {
+      var pw1 = document.getElementById("pswd1").value;
+      var pw2 = document.getElementById("pswd2").value;
+      if (pw1 != pw2) {
+        alert("Passwords did not match");
+      }
+      else {
+        alert("Password created successfully");
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <img src="Images/Logo.png" id="logo">
+  <p id="Web_Heading">DreamBlog</p>
+  <p id="Slogan">Connecting ideas and people globally!</p>
+  <div id="Note">
+    <p><b>Note:</b> By Sign Up, you agree to our Terms & Conditions. We recommend you to learn how we collect, use and
+      share
+      your
+      data in
+      our Privacy Policy.</p>
+  </div>
+  <div id="Intro">
+    <p>Now, join us on Dream Blog and get connected with a vast diversity of ideas and thoughts. Drop your thoughts and
+      see what people express on your blogs.</p>
+  </div>
+  <nav>
+    <ul>
+      <li>About Us</li>
+      <li>Privacy Policy</li>
+      <li>Terms Of Use</li>
+    </ul>
+  </nav>
+
+  <!-- Get Started Button-->
+  <button id="Get_Started_Button" onclick="Reg_Div_Show()"><b>Get Started!</b></button>
+
+  <!--Signup division coding below-->
+  <div class="Reg_Div" id=Signup_Div>
+    <form class="container" method="POST">
+      <button class="Reg_Cancel_Button" id="Signup_Cancel_Button" onclick="Cancel_Reg()">Cancel</button>
+      <button type="button" class="Login_Button" onclick="Login_Div_Show()">
+        <p>Log In</p>
+      </button>
+      <button type="button" class="Signup_Button" id="Signup_Button" onclick="Signup_Div_Show()">
+        <p>Sign Up</p>
+      </button>
+      <input type="text" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" placeholder="Your Mail" required>
+      <input type="password" id="pswd1" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}"
+        title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+        required>
+      <input type="password" id="pswd2" placeholder="Confirm Password" required>
+      <input type="submit" value="Submit" onclick="matchPassword()">
+    </form>
+  </div>
+
+  <!--Login divison coding below-->
+  <div class="Reg_Div" id="Login_Div">
+    <form class="container" method="POST">
+      <button class="Reg_Cancel_Button" id="Login_Cancel_Button" onclick="Cancel_Reg()">Cancel</button>
+      <button type="button" class="Login_Button" id="Login_Button" onclick="Login_Div_Show()">
+        <p>Log In</p>
+      </button>
+      <button type="button" class="Signup_Button" onclick="Signup_Div_Show()">
+        <p>Sign Up</p>
+      </button>
+      <input type="text" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" placeholder="Mail" required>
+      <input type="password" name="" placeholder="Password" required>
+      <input type="submit" value="Login">
+    </form>
+  </div>
+
+  <img src="Images/Idea Image.png" id="Idea_Image">
+  <p id="Idea_Text"><b>Get Idea, Share Idea</b></p>
+  <img src="Images/Write Image.png" id="Write_Image">
+  <p id="Write_Text"><b>Pen down your idea about<br>any topic of your choice.</b></p>
+  <img src="Images/Attach Image.png" id="Attach_Image">
+  <p id="Attach_Text"><b>Attach images to support your<br>idea and make more visual.</b></p>
+  <img src="Images/Globe Image.png" id="Globe_Image">
+  <p id="Globe_Text"><b>Your post reaches all the<br>users across the world.</b></p>
+
+  <!-- Fashon Icons Coding-->
+  <div id="Fashion">
+    <img src="Images/F1.png" alt="" class="Fashion_Icon">
+    <img src="Images/F2.png" alt="" class="Fashion_Icon">
+    <img src="Images/F3.png" alt="" class="Fashion_Icon">
+    <img src="Images/F4.png" alt="" class="Fashion_Icon">
+    <img src="Images/F5.png" alt="" class="Fashion_Icon">
+    <img src="Images/F6.png" alt="" class="Fashion_Icon">
+    <img src="Images/F7.jpg" alt="" class="Fashion_Icon">
+    <img src="Images/F8.jpg" alt="" class="Fashion_Icon">
+    <div class="Fashion_Title">World-wide Affairs</div>
+    <div class="Fashion_Title">Nature Beauty Blogs</div>
+    <div class="Fashion_Title">Food Lovers Blogs</div>
+    <div class="Fashion_Title">Tour & Places Blogs</div>
+    <div class="Fashion_Title">Shopping Lovers Blogs</div>
+    <div class="Fashion_Title"> Entertainment & Movie Blogs</div>
+    <div class="Fashion_Title">Pet Animals Blogs</div>
+    <div class="Fashion_Title">Relationship Blogs</div>
+  </div>
+
+  <!-- Footer Coding -->
+  <div id="Footer">
+    <p id="Social_Handles">Social Media <br>Handles</br></p>
+    <img src="Images/Facebook.png" id="Facebook_Image" alt="">
+    <img src="Images/Instagram.png" id="Instagram_Image" alt="">
+    <img src="Images/Twitter.png" id="Twitter_Image" alt="">
+    <img src="Images/Linkedin.png" id="Linkedin_Image" alt="">
+    <p id="Copyright_Heading">DreamBlog</p>
+    <p id="Copyright_Content">Copyright © 2021 Jitesh Choudhary. All Rights Reserved.</p>
+    <p id="Rating_Text">Rating</p>
+    <img src="Images/Rating.png" id="Rating_Image" alt="">
+  </div>
+</body>
+
+</html>
